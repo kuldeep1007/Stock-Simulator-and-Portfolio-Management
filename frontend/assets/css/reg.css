@@ -1,0 +1,48 @@
+#frm {
+    padding: 16px;
+      margin-left: 480px;
+    background-color: white;
+  }
+  input[type=text], input[type=password] {
+    width: 50%;
+    padding: 15px;
+    margin: 0px 280px 5px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .intro{
+      font-size: 20px;
+      margin: 0px 180px;
+      padding-right: 30px;
+      background-color: #ddd;
+  }
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #000;
+    margin-bottom: 15px;
+      
+  }
+  #test{
+    margin-left: 495px;
+  }
+  .button{
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 14px 40px;
+    text-decoration: none;
+    margin-left: 495px;
+    cursor: pointer;
+  } 
+  #ref{
+    margin-left: 75px;
+}
+#but{
+    margin-left: 0px;
+}

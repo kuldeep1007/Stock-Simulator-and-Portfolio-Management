@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>WELCOME TO SIMULATOR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="../fonts/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg  bg-dark" id="nav">
+    </nav>
+  </header>
+  <script src="../navbar.js"></script>
+
+  <div class="section bg-primary" id="abt">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 element-animate ">
+          <div class="media block-6 d-block text-center">
+            <div class="media-body">
+              <h3 class="heading text-white">Welcome to your Simulator</h3>
+              <table>
+                <tr>
+                  <td>User Name</td>
+                  <td id="uname"></td>
+                </tr>
+                <tr>
+                  <td>Email Id</td>
+                  <td id="uemail"></td>
+                </tr>
+                <tr>
+                  <td>Cash Available</td>
+                  <td id="cash"></td>
+                </tr>
+                <tr>
+                  <td>Portfolio current value</td>
+                  <td id="pval"></td>
+                </tr>
+                <tr>
+                  <td>Profit/Loss realised</td>
+                  <td id="pr"></td>
+                </tr>
+                <tr>
+                  <td>Profit/Loss unrealised</td>
+                  <td id="pur"></td>
+                </tr>
+              </table>
+              <script>
+
+                var dash = document.getElementById("dashboard");
+                dash.className = "nav-link active";
+
+
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6" id="f">
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      </div>
+      <div class="col-sm-6">
+        <form style="margin-left: 40px; margin-top: 130px;">
+          <input type="text" placeholder="Search your Stock Transaction!!!" id="trans">
+
+
+        </form>
+        <button type="submit" name="button" id="btn">Search</button>
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <table id="show" style="margin-top: 10px;">
+              <thead>
+                <tr>
+                  <th>
+                    <center>Stock ID</center>
+                  </th>
+                  <th>
+                    <center>Quantity</center>
+                  </th>
+                  <th>
+                    <center>Buying Price</center>
+                  </th>
+
+                  <th>Time</th>
+                </tr>
+              </thead>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#f4b214" /></svg></div>
+
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../dashboard.js"></script>
+</body>
+
+</html>

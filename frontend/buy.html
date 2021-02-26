@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 150px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      margin-top: -50px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 60%;
+    }
+
+    #buy {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #squantity {
+      width: 50%;
+      padding: 12px 20px;
+      margin-top: 15px;
+      ;
+      box-sizing: border-box;
+      border: 2px solid #007bff;
+      border-radius: 4px;
+    }
+
+    #sname,
+    #sprice {
+      color: #007bff;
+      font-size: 16px;
+    }
+
+    #m1 th {
+      color: #007bff;
+      font-size: 16px;
+    }
+
+    #squantity {
+      margin-left: 215px;
+      width: 50%;
+      padding: 12px 20px;
+      color: black;
+      margin-top: 5px;
+      ;
+      box-sizing: border-box;
+      border: 2px solid #007bff;
+      border-radius: 4px;
+    }
+
+    #buy {
+
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg  bg-dark" id="nav">
+    </nav>
+  </header>
+  <script src="../navbar.js"></script>
+
+  <section class="stocksearch">
+
+    <form>
+      <input type="text" placeholder="Search your Stock!!!" id="stock">
+
+    </form>
+    <button id="btn">Search</button>
+    <h3 id="message" style="color: #087408; margin-top: 100px;"></h3>
+  </section>
+
+
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+      <span class="close">&times;</span>
+
+      <div class="tradingview-widget-container">
+        <div id="tradingview_9e64b"></div>
+        <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols" rel="noopener"
+            target="_blank"></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+      </div>
+      <div id="data" style="margin-top: 15px;">
+        <h4 id="fullname" style="text-align: center;"></h4>
+        <h5 id="sname" style="text-align: center; margin-top: -10px;"></h5>
+        <h5 id="sprice" style="text-align: center; margin-top: -10px;"></h5>
+        <h5>
+          <table id="display" style="margin-top: -10px;">
+            <tr>
+              <td></td>
+              <td></td>
+              <td id="mb" style="text-align: right; color: forestgreen;">Max Buy:</td>
+              <td id="mbuy" style="text-align: left; color: forestgreen;"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>% Change:</td>
+              <td id=pch style="text-align: left;"></td>
+              <td></td>
+              <td></td>
+              <td>Diff:</td>
+              <td id="sdiff" style="text-align: left;"></td>
+            </tr>
+            <tr>
+              <td>High:</td>
+              <td id="shigh" style="text-align: left;"></td>
+              <td></td>
+              <td></td>
+              <td>Low:</td>
+              <td id="slow" style="text-align: left;"></td>
+            </tr>
+            <tr>
+              <td>52W High:</td>
+              <td id="52wh" style="text-align: left;"></td>
+              <td></td>
+              <td></td>
+              <td>52W Low:</td>
+              <td id="52wl" style="text-align: left;"></td>
+            </tr>
+          </table>
+        </h5>
+        <form>
+          <input type="text" placeholder="Enter the quantity" id="squantity">
+        </form>
+        <center><button id="buy">Buy</button></center>
+
+      </div>
+    </div>
+
+    <script>
+
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("btn");
+
+      var buy = document.getElementById("buy");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+
+      buy.onclick = function () {
+        var quant = parseInt(document.getElementById("squantity").value);
+        var rate = parseFloat(document.getElementById("sprice").innerHTML);
+        var stockID = document.getElementById("sname").innerHTML;
+        var a = window.location.href;
+        a = a.split('/');
+        a = a[3];
+        var url = `http://localhost:3000/buy/${a}`;
+        data = { 'stockID': stockID, 'quantity': quant, 'rate': rate };
+        params = {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }
+        fetch(url, params).then((response) => {
+          return response.text();
+        }).then((data) => {
+          if (data) {
+            console.log(data);
+          }
+          else {
+            window.alert("Problem");
+          }
+        })
+        document.getElementById("message").innerHTML=document.getElementById("squantity").value+" stocks of "+document.getElementById("sname").innerHTML+" bought successfully at a rate of "+document.getElementById("sprice").innerHTML;
+
+        modal.style.display = "none";
+      }
+      // When the user clicks the button, open the modal 
+      btn.onclick = function () {
+        var stock = document.getElementById("stock").value.toUpperCase();
+        x = "BSE:" + stock;
+        new TradingView.widget(
+          {
+            "width": 700,
+            "height": 300,
+            "symbol": x,
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "1",
+            "locale": "in",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "container_id": "tradingview_9e64b"
+          }
+        );
+
+        modal.style.display = "block";
+        var last;
+        var url1 = `http://127.0.0.1:5001/stock/${stock}`;
+        fetch(url1).then((response) => {
+          return response.text();
+        }).then((data) => {
+          data = JSON.parse(data);
+          var close = data.previousClose;
+          last = data.lastPrice;
+          document.getElementById("fullname").innerHTML = data.companyName;
+          document.getElementById("sname").innerHTML = data.symbol;
+          document.getElementById("sprice").innerHTML = data.lastPrice;
+          document.getElementById("pch").innerHTML = ((last - close) / close * 100).toFixed(2) + "%";
+          document.getElementById("sdiff").innerHTML = (last - close).toFixed(2);
+          document.getElementById("shigh").innerHTML = data.dayHigh;
+          document.getElementById("slow").innerHTML = data.dayLow;
+          document.getElementById("52wh").innerHTML = data.high52;
+          document.getElementById("52wl").innerHTML = data.low52;
+          var a = window.location.href;
+          a = a.split('/');
+          a = a[3];
+          var url1 = `http://localhost:3000/cash/${a}`;
+          fetch(url1).then((response) => {
+            return response.text();
+          }).then((data1) => {
+            var rate = last;
+            data = parseInt(data1)
+            console.log(data1);
+            console.log(rate);
+            document.getElementById("mbuy").innerHTML = Math.floor(data1 / rate);
+          })
+        })
+
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      var dash = document.getElementById("buy1");
+      dash.className = "nav-link active";
+
+
+    </script>
+  </div>
+
+
+
+</body>
+
+</html>

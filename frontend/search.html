@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg  bg-dark" id="nav">
+    </nav>
+  </header>
+  <script src="../navbar.js"></script>
+  <section class="stocksearch">
+    <form onsubmit="AddRow(); return false;">
+      <input type="text" placeholder="Search your Stock!!!" id="stock">
+      <button type="submit" name="button" id="btn">Add</button>
+    </form>
+    <center>
+      <table id="show">
+        <thead>
+          <tr>
+            <th>
+              <center>Stock Symbol</center>
+            </th>
+            <th>
+              <center>Stock Name</center>
+            </th>
+            <th>
+              <center>Stock Price</center>
+            </th>
+            <th>
+              <center>Stock Closing</center>
+            </th>
+            <th>
+              <center>HIGH</center>
+            </th>
+            <th>
+              <center>LOW</center>
+            </th>
+            <th>
+              <center></center>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </center>
+
+  </section>
+</body>
+
+<script src="../search.js"></script>
+
+</html>

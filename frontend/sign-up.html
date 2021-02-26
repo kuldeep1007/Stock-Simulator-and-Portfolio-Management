@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <title>Sign-up</title>
+  <link rel="stylesheet" href="css/reg.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg  bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="/">SIMULATOR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+          <ul class="navbar-nav pl-md-5 mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="signIn">Login</a>
+            </li>
+               <li class="nav-item">
+              <a class="nav-link active" href="signUp">Register</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="frm">
+    <form>
+      
+        <h1>Register to Simulator !!!</h1>
+        <hr style="margin-right: 520px;">
+          <label for="username"><b>Username</b></label><br>
+        <input type="text" placeholder="Enter Username" name="username" id="username" required><br>
+        
+    
+        <label for="password"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
+          
+          <label for="email"><b>Email</b></label><br>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+    
+        
+        <hr style="margin-right: 520px;">
+        
+    
+      
+    </form>
+        <button class="button" id="but">Register</button>
+        <button type="reset" class="button" id="ref">Refresh</button>
+        
+          <p style="margin-top: 30px;">If you already have an account <a href="signIn">Sign In</a> here.</p>
+        <h2 style="color: #087408;" id="mess"></h2>
+        </div>
+  <script>
+    var but = document.getElementById("but");
+    console.log(but)
+    but.onclick = () => {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var email = document.getElementById("email").value;
+      url = "http://localhost:3000/signUp";
+      data = { 'username': username, 'password': password, 'email': email ,'cash': 500000 };
+      params = {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch(url, params).then((response) => {
+        return response.text();
+      }).then((data) => {
+        if (data) {
+          console.log(data);
+          document.getElementById("mess").innerHTML = "Registeration Successful..!!!";
+        }
+        else {
+          window.alert("Please try again.");
+        }
+      })
+    };
+  </script>
+</body>
+
+</html>

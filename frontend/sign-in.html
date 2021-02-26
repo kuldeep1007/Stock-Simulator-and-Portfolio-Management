@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <title>Sign-in</title>
+   
+	
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reg.css">
+</head>
+<script>
+  signIn = () => {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    url = "http://localhost:3000/signIn";
+    data = { 'username': username, 'password': password };
+    params = {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+    console.log(params)
+    fetch(url, params).then((response) => {
+      return response.text();
+    }).then((data) => {
+      if (data != "false") {
+        //var res = data.slice(1, data.length-1);
+        //console.log(res)
+        location.replace(`/${data}/dashboard`)
+      }
+      else {
+        document.getElementById("test").innerHTML = "Invalid Credentials";
+      }
+    })
+  };
+</script>
+
+<body>
+
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg  bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="/">SIMULATOR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+          <ul class="navbar-nav pl-md-5 mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link active" href="/signIn">Login</a>
+            </li>
+               <li class="nav-item">
+              <a class="nav-link" href="/signUp">Register</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </header>
+<form class="login-form">
+    
+  <div id="frm">
+    <h1>SignIn to Simulator !!!</h1>
+    <hr style="margin-right: 520px;">
+      <label for="username"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Username" name="username" id="username" required><br>
+    <label for="password"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+    <hr style="margin-right: 520px;">
+
+  </div>
+</form>    
+     <button onclick="signIn()" id="reg" class="button">SignIn</button>
+     <h2 class="message" id="test" style="color: red;"></h2>
+</body>
+
+</html>

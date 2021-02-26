@@ -1,0 +1,5 @@
+Flask==1.1.2
+Flask-RESTful==0.3.8
+nsetools==1.0.11
+gunicorn==20.0.4
+Flask-Cors==3.0.9

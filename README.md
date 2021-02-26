@@ -10,7 +10,7 @@ User can see transaction and cashflow detail
 
 ## How to run a project
 
-Download this zop file or clone it. Open in any IDE and add following command
+Download this zip file or clone it. Open in any IDE and add following command
 
 ```bash
 cd backend

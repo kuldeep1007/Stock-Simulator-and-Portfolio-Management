@@ -1,5 +1,7 @@
 # Stock Simulator and Portfolio Management
 
+This project's frontend is done in HTML, CSS and JavaScript. Backend code is written in NodeJs and Data is store in MongoDB
+
 User can buy or sell stock with real time data of National Stock Exchange.
 
 User can maintain their portfolio.
